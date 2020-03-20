@@ -57,5 +57,10 @@ namespace BusinessLayer.Mapping
 				Country = entity.Country
 			};
 		}
+
+		public static AddressModel[] ToAdressModels(this CompanyAddress[] entities)
+		{
+			return entities.Select(model => model.ToAddressModel()).ToArray();
+		}
 	}
 }

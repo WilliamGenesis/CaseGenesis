@@ -9,5 +9,10 @@ namespace DataAccessLayer
 		{
 			throw new NotImplementedException();
 		}
+
+		public Contact GetContact(Guid contactId)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

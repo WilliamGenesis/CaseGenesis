@@ -20,5 +20,10 @@ namespace BusinessLayer
 
 			return _contactRepository.CreateContact(contact);
 		}
+
+		public ContactModel GetContact(Guid contactId)
+		{
+			return _contactRepository.GetContact(contactId).ToContactModel();
+		}
 	}
 }

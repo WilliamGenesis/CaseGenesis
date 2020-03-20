@@ -7,11 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{10B62090-026B-4EA8-93A2-D25E28BB9617}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseGenesis", "CaseGenesis\CaseGenesis.csproj", "{766F15B6-62EF-46CC-94D4-D8A5C57D472A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaseGenesis", "CaseGenesis\CaseGenesis.csproj", "{766F15B6-62EF-46CC-94D4-D8A5C57D472A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{1011D975-C518-4191-B508-F707817E7B4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{1011D975-C518-4191-B508-F707817E7B4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{803B2B9F-3076-4AF6-B22D-971088FC8052}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{803B2B9F-3076-4AF6-B22D-971088FC8052}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{337484D8-6DF3-4515-9CCC-1A149416D370}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

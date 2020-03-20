@@ -5,7 +5,7 @@ namespace BusinessLayer.Mapping
 {
 	public static class CompanyMapper
 	{
-		public static Company ToContact(this CompanyModel model)
+		public static Company ToCompany(this CompanyModel model)
 		{
 			return new Company
 			{
@@ -16,13 +16,13 @@ namespace BusinessLayer.Mapping
 			};
 		}
 
-		public static ContactModel ToContactModel(this Contact entity)
+		public static CompanyModel ToCompanyModel(this Company entity)
 		{
-			return new ContactModel
+			return new CompanyModel
 			{
 				Id = entity.Id,
-				Address = entity.Address.ToAddressModel(),
-				IsFreelance = entity.IsFreelance,
+				MainAddress = entity.MainAddress.ToAddressModel(),
+				OtherAddresses = entity.OtherAddresses.ToAdressModels(),
 				TvaNumber = entity.TvaNumber
 			};
 		}

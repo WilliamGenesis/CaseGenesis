@@ -4334,6 +4334,22 @@
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "BusinessLayer/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "DataAccessLayer": "1.0.0",
+          "Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.1.1",
+          "Models": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BusinessLayer.dll": {}
+        }
+      },
       "DataAccessLayer/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -4359,6 +4375,19 @@
         },
         "runtime": {
           "bin/placeholder/Entities.dll": {}
+        }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.1.1"
+        },
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
         }
       }
     }
@@ -11519,6 +11548,11 @@
         "system.xml.xpath.xdocument.nuspec"
       ]
     },
+    "BusinessLayer/1.0.0": {
+      "type": "project",
+      "path": "../BusinessLayer/BusinessLayer.csproj",
+      "msbuildProject": "../BusinessLayer/BusinessLayer.csproj"
+    },
     "DataAccessLayer/1.0.0": {
       "type": "project",
       "path": "../DataAccessLayer/DataAccessLayer.csproj",
@@ -11528,14 +11562,21 @@
       "type": "project",
       "path": "../Entities/Entities.csproj",
       "msbuildProject": "../Entities/Entities.csproj"
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "BusinessLayer >= 1.0.0",
       "DataAccessLayer >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.EntityFrameworkCore >= 2.1.1",
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -11568,8 +11609,14 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\BusinessLayer\\BusinessLayer.csproj": {
+              "projectPath": "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\BusinessLayer\\BusinessLayer.csproj"
+            },
             "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\DataAccessLayer\\DataAccessLayer.csproj": {
               "projectPath": "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\DataAccessLayer\\DataAccessLayer.csproj"
+            },
+            "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\Models\\Models.csproj"
             }
           }
         }
