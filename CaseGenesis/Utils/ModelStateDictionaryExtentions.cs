@@ -12,7 +12,7 @@ namespace CaseGenesis.Utils
 
 			foreach(var validationResult in validationResults)
 			{
-				if (validationResults != null)
+				if (validationResult != null)
 					modelState.AddModelError("Errors", validationResult.ErrorMessage);
 			}
 		}
