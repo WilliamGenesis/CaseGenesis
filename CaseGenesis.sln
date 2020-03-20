@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaseGenesis", "WebApplication1\CaseGenesis.csproj", "{DB1DD323-73F3-4B26-9567-FAAF5D9BF80C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{DF64300E-3171-4FDB-ABC1-C7BBAE90F0B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{10B62090-026B-4EA8-93A2-D25E28BB9617}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB1DD323-73F3-4B26-9567-FAAF5D9BF80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB1DD323-73F3-4B26-9567-FAAF5D9BF80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB1DD323-73F3-4B26-9567-FAAF5D9BF80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB1DD323-73F3-4B26-9567-FAAF5D9BF80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF64300E-3171-4FDB-ABC1-C7BBAE90F0B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF64300E-3171-4FDB-ABC1-C7BBAE90F0B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF64300E-3171-4FDB-ABC1-C7BBAE90F0B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF64300E-3171-4FDB-ABC1-C7BBAE90F0B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10B62090-026B-4EA8-93A2-D25E28BB9617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10B62090-026B-4EA8-93A2-D25E28BB9617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10B62090-026B-4EA8-93A2-D25E28BB9617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10B62090-026B-4EA8-93A2-D25E28BB9617}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {35DC4620-3A85-4F31-96D1-242218C0410F}
+	EndGlobalSection
+EndGlobal
