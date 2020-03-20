@@ -4,16 +4,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities
 {
-	public class Contact
+	public class Company
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public Guid Id { get; set; }
-		public string Address { get; set; }
-		public bool IsFreelance { get; set; }
 		public string TvaNumber { get; set; }
-		public Guid ContactAddressId { get; set; }
+		public CompanyAddress MainAddress { get; set; }
 
-		public Company[] Companies;
+		public CompanyAddress[] OtherAddresses { get; set; }
 	}
 }
