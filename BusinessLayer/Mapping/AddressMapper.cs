@@ -1,5 +1,6 @@
 ﻿using Entities;
 using Models;
+using System.Linq;
 
 namespace BusinessLayer.Mapping
 {
@@ -28,6 +29,11 @@ namespace BusinessLayer.Mapping
 				CompanyId = company.Id,
 				IsMainAddress = company.MainAddress.Id == model.Id
 			};
+		}
+
+		public static CompanyAddress[] ToCompanyAddresses(this AddressModel[] models, CompanyModel company)
+		{
+			return models.Select(model => model.ToCompanyAddress(company)).ToArray();
 		}
 
 		public static AddressModel ToAddressModel(this ContactAddress entity)
