@@ -208,6 +208,16 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Entities.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
@@ -684,6 +694,11 @@
         "netstandard.library.nuspec"
       ]
     },
+    "Entities/1.0.0": {
+      "type": "project",
+      "path": "../Entities/Entities.csproj",
+      "msbuildProject": "../Entities/Entities.csproj"
+    },
     "Models/1.0.0": {
       "type": "project",
       "path": "../Models/Models.csproj",
@@ -692,6 +707,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "Entities >= 1.0.0",
       "Microsoft.NETCore.App >= 2.1.0",
       "Models >= 1.0.0"
     ]
@@ -726,6 +742,9 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
+            "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\Entities\\Entities.csproj"
+            },
             "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\Models\\Models.csproj": {
               "projectPath": "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\Models\\Models.csproj"
             }

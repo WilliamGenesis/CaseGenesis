@@ -9,11 +9,11 @@ namespace Entities
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 		public Guid Id { get; set; }
-		public string Address { get; set; }
 		public bool IsFreelance { get; set; }
 		public string TvaNumber { get; set; }
 		public Guid ContactAddressId { get; set; }
 
-		public Company[] Companies;
+		public ContactAddress Address { get; set; }
+		public Company[] Companies { get; set; }
 	}
 }

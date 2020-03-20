@@ -1,8 +1,11 @@
-﻿namespace Models
+﻿using System;
+
+namespace Models
 {
 	public class ContactModel
 	{
-		public string Address { get; set; }
+		public Guid Id { get; set; }
+		public AddressModel Address { get; set; }
 		public CompanyModel[] Companies { get; set; }
 		public bool IsFreelance { get; set; }
 		public string TvaNumber { get; set; }

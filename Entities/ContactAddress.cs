@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities
 {
-	class ContactAddress
+	public class ContactAddress
 	{
 		[Key]
 		[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -12,5 +12,6 @@ namespace Entities
 		public string Address { get; set; }
 		public string PostalCode { get; set; }
 		public string Country { get; set; }
+		public Guid ContactId { get; set; }
 	}
 }
