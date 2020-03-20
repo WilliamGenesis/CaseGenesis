@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Models;
+using System;
 
 namespace BusinessLayer
 {
 	public interface IContactService
 	{
-
+		Guid CreateContact(ContactModel contactModel);
 	}
 }

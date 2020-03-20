@@ -207,6 +207,16 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Models.dll": {}
+        }
       }
     }
   },
@@ -673,11 +683,17 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Models/1.0.0": {
+      "type": "project",
+      "path": "../Models/Models.csproj",
+      "msbuildProject": "../Models/Models.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Microsoft.NETCore.App >= 2.1.0"
+      "Microsoft.NETCore.App >= 2.1.0",
+      "Models >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -687,11 +703,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\administrateur\\source\\repos\\CaseGenesis\\BusinessLayer\\BusinessLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\BusinessLayer\\BusinessLayer.csproj",
       "projectName": "BusinessLayer",
-      "projectPath": "c:\\users\\administrateur\\source\\repos\\CaseGenesis\\BusinessLayer\\BusinessLayer.csproj",
+      "projectPath": "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\BusinessLayer\\BusinessLayer.csproj",
       "packagesPath": "C:\\Users\\Administrateur\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\administrateur\\source\\repos\\CaseGenesis\\BusinessLayer\\obj\\",
+      "outputPath": "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\BusinessLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -709,7 +725,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\Models\\Models.csproj": {
+              "projectPath": "C:\\Users\\Administrateur\\source\\repos\\CaseGenesis\\Models\\Models.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
