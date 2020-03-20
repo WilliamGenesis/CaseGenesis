@@ -29,6 +29,8 @@ namespace CaseGenesis
 		{
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 			services.AddDbContext<CaseContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:EmployeeDB"]));
+
+			services.AddTransient<IContactRepository, ContactRepository>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
