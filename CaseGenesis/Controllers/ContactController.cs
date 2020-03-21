@@ -48,6 +48,7 @@ namespace CaseGenesis.Controllers
 		}
 
 		[HttpDelete]
+		[Route("{contactId}")]
 		public ActionResult DeleteContact(Guid contactId)
 		{
 			return Ok(_contactService.DeleteContact(contactId));
