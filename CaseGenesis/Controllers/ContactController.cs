@@ -7,7 +7,7 @@ using Models.Validation;
 
 namespace CaseGenesis.Controllers
 {
-	[Route("api/[controller]")]
+	[Route("api/contact")]
 	[ApiController]
 	public class ContactController : ControllerBase
 	{

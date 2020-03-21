@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using CaseGenesis.Middleware;
 using DataAccessLayer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,6 +41,7 @@ namespace CaseGenesis
 				app.UseHsts();
 			}
 
+			app.UseErrorHandlingMiddleware();
 			app.UseHttpsRedirection();
 			app.UseMvc();
 		}
