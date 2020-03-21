@@ -10,7 +10,17 @@ namespace DataAccessLayer
 			throw new NotImplementedException();
 		}
 
+		public bool DeleteContact(Guid contactId)
+		{
+			throw new NotImplementedException();
+		}
+
 		public Contact GetContact(Guid contactId)
+		{
+			throw new NotImplementedException();
+		}
+
+		public Guid UpdateContact(Contact contact)
 		{
 			throw new NotImplementedException();
 		}

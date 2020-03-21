@@ -35,5 +35,22 @@ namespace CaseGenesis.Controllers
 
 			return Ok(_contactService.CreateContact(contact));
 		}
+
+		[HttpPut]
+		public ActionResult UpdateContact(ContactModel contact)
+		{
+			ModelState.AppendStatefulValidation(ContactValidation.ValidateContactModel(contact));
+
+			if (!ModelState.IsValid)
+				return BadRequest(ModelState);
+
+			return Ok(_contactService.UpdateContact(contact));
+		}
+
+		[HttpDelete]
+		public ActionResult DeleteContact(Guid contactId)
+		{
+			return Ok(_contactService.DeleteContact(contactId));
+		}
 	}
 }
