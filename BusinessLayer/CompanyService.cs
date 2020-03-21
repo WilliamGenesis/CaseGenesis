@@ -44,7 +44,7 @@ namespace BusinessLayer
 			_addressRepository.UpsertCompanyAddress(company.MainAddress);
 			UpsertAddresses(company.OtherAddresses);
 
-			return _companyRepository.CreateCompany(company);
+			return _companyRepository.UpdateCompany(company);
 		}
 
 		public Guid UpsertCompany(CompanyModel companyModel)

@@ -9,7 +9,7 @@ using System;
 namespace BusinessLayerUnitTests
 {
 	[TestClass]
-	public class ContactRepositoryUnittests
+	public class ContactServiceUnitTests
 	{
 		[TestMethod]
 		public void CreateContact_GivenACorrectContactModel_ShouldCallUpsertCompanyForEveryCompany()
