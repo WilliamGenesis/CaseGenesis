@@ -7,6 +7,7 @@ namespace BusinessLayer
 	{
 		Guid CreateCompany(CompanyModel companyModel);
 		Guid UpdateCompany(CompanyModel companyModel);
+		Guid UpsertCompany(CompanyModel companyModel);
 		bool DeleteCompany(Guid companyId);
 		CompanyModel GetCompany(Guid companyId);
 	}
