@@ -52,8 +52,17 @@ namespace BusinessLayer
 		public Guid UpdateContact(ContactModel contactModel)
 		{
 			var contact = contactModel.ToContact();
+			contactModel.Id = _contactRepository.UpdateContact(contact);
 
-			return _contactRepository.UpdateContact(contact);
+			_addressRepository.UpsertContactAddress(contactModel.Address.ToContactAddress(contactModel));
+
+			foreach (var company in contactModel.Companies)
+			{
+				company.ContactId = contactModel.Id;
+				_companyService.UpsertCompany(company);
+			}
+
+			return contactModel.Id;
 		}
 	}
 }

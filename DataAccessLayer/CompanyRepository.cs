@@ -45,7 +45,8 @@ namespace DataAccessLayer
 			if (original == null)
 				throw new Exception("The contact you are trying to update does not exist");
 
-			original = company;
+			_fakeObjectGenerator.Companies.Remove(original);
+			_fakeObjectGenerator.Companies.Add(company);
 
 			return company.Id;
 		}

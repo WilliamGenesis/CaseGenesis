@@ -46,7 +46,10 @@ namespace DataAccessLayer
 			var original = _fakeObjectGenerator.CompanyAddresses.FirstOrDefault(add => add.Id == address.Id);
 
 			if (original != null)
-				original = address;
+			{
+				_fakeObjectGenerator.CompanyAddresses.Remove(original);
+				_fakeObjectGenerator.CompanyAddresses.Add(address);
+			}
 
 			address.Id = _fakeObjectGenerator.GetNewGuid();
 			_fakeObjectGenerator.CompanyAddresses.Add(address);
@@ -59,7 +62,10 @@ namespace DataAccessLayer
 			var original = _fakeObjectGenerator.ContactAddresses.FirstOrDefault(add => add.Id == address.Id);
 
 			if (original != null)
-				original = address;
+			{
+				_fakeObjectGenerator.ContactAddresses.Remove(original);
+				_fakeObjectGenerator.ContactAddresses.Add(address);
+			}
 
 			address.Id = _fakeObjectGenerator.GetNewGuid();
 			_fakeObjectGenerator.ContactAddresses.Add(address);
