@@ -50,19 +50,20 @@ namespace DataAccessLayer
 			if (original == null)
 				throw new Exception("The contact you are trying to update does not exist");
 
-			original = ResolveInsertContact(contact);
+			_fakeObjectGenerator.Contacts.Remove(original);
+			_fakeObjectGenerator.Contacts.Add(ResolveInsertContact(contact, false));
 
 			return contact.Id;
 		}
 
 		#region HelpersToSimulateEF
 
-		public Contact ResolveInsertContact(Contact contact)
+		public Contact ResolveInsertContact(Contact contact, bool overrideId = true)
 		{
 			contact.Address = null;
 			contact.Companies = null;
 
-			contact.Id = _fakeObjectGenerator.GetNewGuid();
+			contact.Id = overrideId ? _fakeObjectGenerator.GetNewGuid() : contact.Id ;
 
 			return contact;
 		}
