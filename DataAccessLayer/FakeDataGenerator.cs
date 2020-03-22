@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace DataAccessLayer
 {
-	public class FakeDataGenerator
+	public class FakeDataGenerator : IFakeObjectGenerator
 	{
 		private const int CONTACT_COUNT = 20;
 		private readonly Faker _faker = new Faker("en");

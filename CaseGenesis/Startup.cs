@@ -25,9 +25,30 @@ namespace CaseGenesis
 			services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 			services.AddDbContext<CaseContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:EmployeeDB"]));
 
+			ConfigureContacts(services);
+			ConfigureCompanies(services);
+			ConfigureAddress(services);
+
+			services.AddSingleton<IFakeObjectGenerator, FakeDataGenerator>();
+		}
+
+		private void ConfigureContacts(IServiceCollection services)
+		{
 			services.AddTransient<IContactRepository, ContactRepository>();
 			services.AddTransient<IContactService, ContactService>();
 		}
+
+		private void ConfigureCompanies(IServiceCollection services)
+		{
+			services.AddTransient<ICompanyRepository, CompanyRepository>();
+			services.AddTransient<ICompanyService, CompanyService>();
+		}
+
+		private void ConfigureAddress(IServiceCollection services)
+		{
+			services.AddTransient<IAddressRepository, AddressRepository>();
+		}
+
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
