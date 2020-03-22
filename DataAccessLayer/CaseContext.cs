@@ -48,6 +48,13 @@ namespace DataAccessLayer
 				.WithOne(address => address.Company)
 				.HasForeignKey(address => address.CompanyId);
 			});
+
+			var fakeDataGenerator = new FakeDataGenerator();
+
+			modelBuilder.Entity<Contact>().HasData(fakeDataGenerator.Contacts);
+			modelBuilder.Entity<Company>().HasData(fakeDataGenerator.Companies);
+			modelBuilder.Entity<ContactAddress>().HasData(fakeDataGenerator.ContactAddresses);
+			modelBuilder.Entity<CompanyAddress>().HasData(fakeDataGenerator.CompanyAddresses);
 		}
 	}
 }
