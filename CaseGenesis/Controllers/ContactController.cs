@@ -22,6 +22,11 @@ namespace CaseGenesis.Controllers
 		[Route("{contactId}")]
 		public ActionResult Get(Guid contactId)
 		{
+			var contact = _contactService.GetContact(contactId);
+
+			if (contact is null)
+				return NotFound();
+
 			return Ok(_contactService.GetContact(contactId));
 		}
 
@@ -55,7 +60,7 @@ namespace CaseGenesis.Controllers
 		}
 
 		[HttpDelete]
-		[Route("{contactId}")]
+		[Route("delete/{contactId}")]
 		public ActionResult DeleteContact(Guid contactId)
 		{
 			return Ok(_contactService.DeleteContact(contactId));

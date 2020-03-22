@@ -36,17 +36,17 @@ namespace BusinessLayer
 
 		public bool DeleteContact(Guid contactId)
 		{
-			return DeleteContact(contactId);
+			return _contactRepository.DeleteContact(contactId);
 		}
 
 		public ContactModel[] GetAllContacts()
 		{
-			return _contactRepository.GetAllContacts().ToContactModels();
+			return _contactRepository.GetAllContacts()?.ToContactModels();
 		}
 
 		public ContactModel GetContact(Guid contactId)
 		{
-			return _contactRepository.GetContact(contactId).ToContactModel();
+			return _contactRepository.GetContact(contactId)?.ToContactModel();
 		}
 
 		public Guid UpdateContact(ContactModel contactModel)

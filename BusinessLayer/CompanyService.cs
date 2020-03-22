@@ -37,7 +37,7 @@ namespace BusinessLayer
 
 		public CompanyModel GetCompany(Guid companyId)
 		{
-			return _companyRepository.GetCompany(companyId).ToCompanyModel();
+			return _companyRepository.GetCompany(companyId)?.ToCompanyModel();
 		}
 
 		public Guid UpdateCompany(CompanyModel companyModel)

@@ -20,6 +20,11 @@ namespace CaseGenesis.Controllers
 		[Route("{companyId}")]
 		public ActionResult Get(Guid companyId)
 		{
+			var company = _companyService.GetCompany(companyId);
+
+			if (company is null)
+				return NotFound();
+
 			return Ok(_companyService.GetCompany(companyId));
 		}
 
