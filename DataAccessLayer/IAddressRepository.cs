@@ -9,7 +9,7 @@ namespace DataAccessLayer
 		Guid CreateContactAddress(ContactAddress address);
 		Guid UpsertCompanyAddress(CompanyAddress address);
 		Guid UpsertContactAddress(ContactAddress address);
-		CompanyAddress GetCompanyAddress(Guid address);
-		CompanyAddress GetContactAddress(Guid address);
+		CompanyAddress GetCompanyAddress(Guid addressId);
+		ContactAddress GetContactAddress(Guid addressId);
 	}
 }
