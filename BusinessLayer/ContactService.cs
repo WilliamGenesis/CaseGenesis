@@ -37,6 +37,11 @@ namespace BusinessLayer
 			return DeleteContact(contactId);
 		}
 
+		public ContactModel[] GetAllContacts()
+		{
+			return _contactRepository.GetAllContacts().ToContactModels();
+		}
+
 		public ContactModel GetContact(Guid contactId)
 		{
 			return _contactRepository.GetContact(contactId).ToContactModel();

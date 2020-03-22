@@ -9,5 +9,6 @@ namespace DataAccessLayer
 		Guid UpdateContact(Contact contact);
 		bool DeleteContact(Guid contactId);
 		Contact GetContact(Guid contactId);
+		Contact[] GetAllContacts();
 	}
 }

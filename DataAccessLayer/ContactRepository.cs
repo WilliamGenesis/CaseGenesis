@@ -32,6 +32,11 @@ namespace DataAccessLayer
 			return true;
 		}
 
+		public Contact[] GetAllContacts()
+		{
+			return _fakeObjectGenerator.Contacts.ToArray();
+		}
+
 		public Contact GetContact(Guid contactId)
 		{
 			return _fakeObjectGenerator.Contacts.FirstOrDefault(contact => contact.Id == contactId);

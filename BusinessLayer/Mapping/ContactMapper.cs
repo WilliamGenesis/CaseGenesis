@@ -1,5 +1,6 @@
 ﻿using Entities;
 using Models;
+using System.Linq;
 
 namespace BusinessLayer.Mapping
 {
@@ -25,6 +26,11 @@ namespace BusinessLayer.Mapping
 				IsFreelance = entity.IsFreelance,
 				TvaNumber = entity.TvaNumber
 			};
+		}
+
+		public static ContactModel[] ToContactModels(this Contact[] contacts)
+		{
+			return contacts.Select(contact => contact.ToContactModel()).ToArray();
 		}
 	}
 }

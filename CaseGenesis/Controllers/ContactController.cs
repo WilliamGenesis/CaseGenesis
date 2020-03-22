@@ -25,6 +25,13 @@ namespace CaseGenesis.Controllers
 			return Ok(_contactService.GetContact(contactId));
 		}
 
+		[HttpGet]
+		[Route("all")]
+		public ActionResult GetAll()
+		{
+			return Ok(_contactService.GetAllContacts());
+		}
+
 		[HttpPost]
 		public ActionResult CreateContact(ContactModel contact)
 		{
