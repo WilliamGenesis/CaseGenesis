@@ -15,8 +15,7 @@ namespace DataAccessLayer
 
 		public Guid CreateContact(Contact contact)
 		{
-			contact.Id = Guid.NewGuid();
-			_fakeObjectGenerator.Contacts.Add(contact);
+			_fakeObjectGenerator.Contacts.Add(ResolveInsertContact(contact));
 
 			return contact.Id;
 		}
@@ -41,7 +40,7 @@ namespace DataAccessLayer
 
 		public Contact GetContact(Guid contactId)
 		{
-			return _fakeObjectGenerator.Contacts.FirstOrDefault(contact => contact.Id == contactId);
+			return ResolveContact(_fakeObjectGenerator.Contacts.FirstOrDefault(contact => contact.Id == contactId));
 		}
 
 		public Guid UpdateContact(Contact contact)
@@ -51,9 +50,21 @@ namespace DataAccessLayer
 			if (original == null)
 				throw new Exception("The contact you are trying to update does not exist");
 
-			original = contact;
+			original = ResolveInsertContact(contact);
 
 			return contact.Id;
+		}
+
+		#region HelpersToSimulateEF
+
+		public Contact ResolveInsertContact(Contact contact)
+		{
+			contact.Address = null;
+			contact.Companies = null;
+
+			contact.Id = _fakeObjectGenerator.GetNewGuid();
+
+			return contact;
 		}
 
 		public Contact ResolveContact(Contact contact)
@@ -72,5 +83,7 @@ namespace DataAccessLayer
 
 			return company;
 		}
+
+		#endregion
 	}
 }

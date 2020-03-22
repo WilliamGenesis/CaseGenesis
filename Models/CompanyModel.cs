@@ -11,5 +11,7 @@ namespace Models
 		public AddressModel[] OtherAddresses { get; set; }
 		[Required]
 		public string TvaNumber { get; set; }
+		[Required]
+		public Guid ContactId { get; set; }
 	}
 }

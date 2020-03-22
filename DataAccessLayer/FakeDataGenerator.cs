@@ -112,5 +112,10 @@ namespace DataAccessLayer
 					});
 			}
 		}
+
+		public Guid GetNewGuid()
+		{
+			return _faker.Random.Guid();
+		}
 	}
 }

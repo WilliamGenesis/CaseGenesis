@@ -19,12 +19,15 @@ namespace BusinessLayer
 
 		public Guid CreateCompany(CompanyModel companyModel)
 		{
+			var mainAddressId = _addressRepository.UpsertCompanyAddress(companyModel.MainAddress.ToMainCompanyAddress());
 			var company = companyModel.ToCompany();
+			company.MainAddressId = mainAddressId;
 
-			_addressRepository.UpsertCompanyAddress(company.MainAddress);
-			UpsertAddresses(company.OtherAddresses);
+			companyModel.Id = _companyRepository.CreateCompany(company);
 
-			return _companyRepository.CreateCompany(company);
+			UpsertAddresses(companyModel.OtherAddresses?.ToCompanyAddresses(companyModel));
+
+			return companyModel.Id;
 		}
 
 		public bool DeleteCompany(Guid companyId)
@@ -39,6 +42,7 @@ namespace BusinessLayer
 
 		public Guid UpdateCompany(CompanyModel companyModel)
 		{
+			
 			var company = companyModel.ToCompany();
 
 			_addressRepository.UpsertCompanyAddress(company.MainAddress);
@@ -49,19 +53,25 @@ namespace BusinessLayer
 
 		public Guid UpsertCompany(CompanyModel companyModel)
 		{
+			var mainAddressId = _addressRepository.UpsertCompanyAddress(companyModel.MainAddress.ToMainCompanyAddress());
 			var company = companyModel.ToCompany();
-
-			_addressRepository.UpsertCompanyAddress(company.MainAddress);
-			UpsertAddresses(company.OtherAddresses);
+			company.MainAddressId = mainAddressId;
 
 			if (_companyRepository.GetCompany(company.Id) == null)
-				return _companyRepository.CreateCompany(company);
+				companyModel.Id = _companyRepository.CreateCompany(company);
+			else
+				companyModel.Id = _companyRepository.UpdateCompany(company);
 
-			return _companyRepository.UpdateCompany(company);
+			UpsertAddresses(companyModel.OtherAddresses?.ToCompanyAddresses(companyModel));
+
+			return companyModel.Id;
 		}
 
 		private void UpsertAddresses(CompanyAddress[] addresses)
 		{
+			if (addresses is null)
+				return;
+
 			foreach(var address in addresses)
 			{
 				_addressRepository.UpsertCompanyAddress(address);

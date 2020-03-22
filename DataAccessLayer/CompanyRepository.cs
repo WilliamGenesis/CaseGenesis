@@ -15,7 +15,7 @@ namespace DataAccessLayer
 
 		public Guid CreateCompany(Company company)
 		{
-			company.Id = Guid.NewGuid();
+			company.Id = _fakeObjectGenerator.GetNewGuid();
 
 			_fakeObjectGenerator.Companies.Add(company);
 
@@ -57,7 +57,7 @@ namespace DataAccessLayer
 			if (original != null)
 				original = company;
 
-			company.Id = Guid.NewGuid();
+			company.Id = _fakeObjectGenerator.GetNewGuid();
 			_fakeObjectGenerator.Companies.Add(company);
 
 			return company.Id;

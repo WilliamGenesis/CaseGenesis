@@ -18,6 +18,18 @@ namespace BusinessLayer.Mapping
 			};
 		}
 
+		public static CompanyAddress ToMainCompanyAddress(this AddressModel model)
+		{
+			return new CompanyAddress
+			{
+				Id = model.Id,
+				Address = model.Address,
+				PostalCode = model.PostalCode,
+				Country = model.Country,
+				IsMainAddress = true
+			};
+		}
+
 		public static CompanyAddress ToCompanyAddress(this AddressModel model, CompanyModel company)
 		{
 			return new CompanyAddress
@@ -27,7 +39,7 @@ namespace BusinessLayer.Mapping
 				PostalCode = model.PostalCode,
 				Country = model.Country,
 				CompanyId = company.Id,
-				IsMainAddress = company.MainAddress.Id == model.Id
+				IsMainAddress = false
 			};
 		}
 

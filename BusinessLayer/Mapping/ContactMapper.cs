@@ -12,6 +12,7 @@ namespace BusinessLayer.Mapping
 			{
 				Id = model.Id,
 				Address = model.Address.ToContactAddress(model),
+				Companies = model.Companies?.ToCompanies(),
 				IsFreelance = model.IsFreelance,
 				TvaNumber = model.TvaNumber
 			};
@@ -23,7 +24,7 @@ namespace BusinessLayer.Mapping
 			{
 				Id = entity.Id,
 				Address = entity.Address.ToAddressModel(),
-				Companies = entity.Companies.ToCompanyModels(),
+				Companies = entity.Companies?.ToCompanyModels(),
 				IsFreelance = entity.IsFreelance,
 				TvaNumber = entity.TvaNumber
 			};

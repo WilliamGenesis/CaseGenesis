@@ -1,4 +1,5 @@
 ﻿using Entities;
+using System;
 using System.Collections.Generic;
 
 namespace DataAccessLayer
@@ -9,5 +10,6 @@ namespace DataAccessLayer
 		List<Company> Companies { get; set; }
 		List<ContactAddress> ContactAddresses { get; set; }
 		List<CompanyAddress> CompanyAddresses { get; set; }
+		Guid GetNewGuid();
 	}
 }

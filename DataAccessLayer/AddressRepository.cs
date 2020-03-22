@@ -15,7 +15,7 @@ namespace DataAccessLayer
 
 		public Guid CreateCompanyAddress(CompanyAddress address)
 		{
-			address.Id = Guid.NewGuid();
+			address.Id = _fakeObjectGenerator.GetNewGuid();
 
 			_fakeObjectGenerator.CompanyAddresses.Add(address);
 
@@ -24,7 +24,7 @@ namespace DataAccessLayer
 
 		public Guid CreateContactAddress(ContactAddress address)
 		{
-			address.Id = Guid.NewGuid();
+			address.Id = _fakeObjectGenerator.GetNewGuid();
 
 			_fakeObjectGenerator.ContactAddresses.Add(address);
 
@@ -48,7 +48,7 @@ namespace DataAccessLayer
 			if (original != null)
 				original = address;
 
-			address.Id = Guid.NewGuid();
+			address.Id = _fakeObjectGenerator.GetNewGuid();
 			_fakeObjectGenerator.CompanyAddresses.Add(address);
 
 			return address.Id;
@@ -61,7 +61,7 @@ namespace DataAccessLayer
 			if (original != null)
 				original = address;
 
-			address.Id = Guid.NewGuid();
+			address.Id = _fakeObjectGenerator.GetNewGuid();
 			_fakeObjectGenerator.ContactAddresses.Add(address);
 
 			return address.Id;
