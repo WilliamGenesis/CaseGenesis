@@ -10,5 +10,6 @@ namespace DataAccessLayer
 		bool DeleteCompany(Guid companyId);
 		Guid UpsertCompany(Company company);
 		Company GetCompany(Guid companyId);
+		Company[] GetCompaniesByContact(Guid contactId);
 	}
 }

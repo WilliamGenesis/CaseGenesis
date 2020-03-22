@@ -40,6 +40,14 @@ namespace BusinessLayer
 			return _companyRepository.GetCompany(companyId)?.ToCompanyModel();
 		}
 
+		public bool IsValidForDeletion(Guid companyId)
+		{
+			var company = _companyRepository.GetCompany(companyId);
+			var contactCompanies = _companyRepository.GetCompaniesByContact(company.ContactId);
+
+			return contactCompanies.Length > 1;
+		}
+
 		public Guid UpdateCompany(CompanyModel companyModel)
 		{
 			var mainAddressId = _addressRepository.UpsertCompanyAddress(companyModel.MainAddress.ToMainCompanyAddress());

@@ -10,5 +10,6 @@ namespace BusinessLayer
 		Guid UpsertCompany(CompanyModel companyModel);
 		bool DeleteCompany(Guid companyId);
 		CompanyModel GetCompany(Guid companyId);
+		bool IsValidForDeletion(Guid companyId);
 	}
 }

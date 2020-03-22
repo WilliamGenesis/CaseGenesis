@@ -47,9 +47,12 @@ namespace CaseGenesis.Controllers
 		}
 
 		[HttpDelete]
-		[Route("{companyId}")]
+		[Route("delete/{companyId}")]
 		public ActionResult DeleteCompany(Guid companyId)
 		{
+			if (!_companyService.IsValidForDeletion(companyId))
+				return BadRequest("Impossible to delete this company : a contact must always have a company");
+
 			return Ok(_companyService.DeleteCompany(companyId));
 		}
 	}

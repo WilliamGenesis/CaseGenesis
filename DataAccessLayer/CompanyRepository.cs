@@ -64,9 +64,17 @@ namespace DataAccessLayer
 			return company.Id;
 		}
 
+		public Company[] GetCompaniesByContact(Guid contactId)
+		{
+			return _fakeObjectGenerator.Companies.Where(company => company.ContactId == contactId)
+				?.Select(company => ResolveCompany(company))
+				.ToArray();
+		}
+
+
 		#region HelpersToSimulateEF
 
-		public Company ResolveInsertCompany(Company company, bool overrideId = true)
+		private Company ResolveInsertCompany(Company company, bool overrideId = true)
 		{
 			company.MainAddress = null;
 			company.OtherAddresses = null;
@@ -76,7 +84,7 @@ namespace DataAccessLayer
 			return company;
 		}
 
-		public Company ResolveCompany(Company company)
+		private Company ResolveCompany(Company company)
 		{
 			if (company is null)
 				return null;
@@ -86,7 +94,6 @@ namespace DataAccessLayer
 
 			return company;
 		}
-
 		#endregion
 	}
 }
