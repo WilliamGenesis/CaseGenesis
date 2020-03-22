@@ -15,5 +15,7 @@ namespace Entities
 
 		public Guid CompanyId { get; set; }
 		public bool IsMainAddress { get; set; }
+
+		public Company Company { get; set; }
 	}
 }

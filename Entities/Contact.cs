@@ -11,7 +11,6 @@ namespace Entities
 		public Guid Id { get; set; }
 		public bool IsFreelance { get; set; }
 		public string TvaNumber { get; set; }
-		public Guid ContactAddressId { get; set; }
 
 		public ContactAddress Address { get; set; }
 		public Company[] Companies { get; set; }
