@@ -42,13 +42,15 @@ namespace BusinessLayer
 
 		public Guid UpdateCompany(CompanyModel companyModel)
 		{
-			
+			var mainAddressId = _addressRepository.UpsertCompanyAddress(companyModel.MainAddress.ToMainCompanyAddress());
 			var company = companyModel.ToCompany();
+			company.MainAddressId = mainAddressId;
 
-			_addressRepository.UpsertCompanyAddress(company.MainAddress);
-			UpsertAddresses(company.OtherAddresses);
+			companyModel.Id = _companyRepository.UpdateCompany(company);
 
-			return _companyRepository.UpdateCompany(company);
+			UpsertAddresses(companyModel.OtherAddresses?.ToCompanyAddresses(companyModel));
+
+			return companyModel.Id;
 		}
 
 		public Guid UpsertCompany(CompanyModel companyModel)

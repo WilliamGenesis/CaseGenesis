@@ -15,9 +15,7 @@ namespace DataAccessLayer
 
 		public Guid CreateCompany(Company company)
 		{
-			company.Id = _fakeObjectGenerator.GetNewGuid();
-
-			_fakeObjectGenerator.Companies.Add(company);
+			_fakeObjectGenerator.Companies.Add(ResolveInsertCompany(company));
 
 			return company.Id;
 		}
@@ -35,7 +33,7 @@ namespace DataAccessLayer
 
 		public Company GetCompany(Guid companyId)
 		{
-			return _fakeObjectGenerator.Companies.FirstOrDefault(company => company.Id == companyId);
+			return ResolveCompany(_fakeObjectGenerator.Companies.FirstOrDefault(company => company.Id == companyId));
 		}
 
 		public Guid UpdateCompany(Company company)
@@ -46,7 +44,7 @@ namespace DataAccessLayer
 				throw new Exception("The contact you are trying to update does not exist");
 
 			_fakeObjectGenerator.Companies.Remove(original);
-			_fakeObjectGenerator.Companies.Add(company);
+			_fakeObjectGenerator.Companies.Add(ResolveInsertCompany(company, false));
 
 			return company.Id;
 		}
@@ -56,12 +54,39 @@ namespace DataAccessLayer
 			var original = _fakeObjectGenerator.Companies.FirstOrDefault(comp => comp.Id == company.Id);
 
 			if (original != null)
-				original = company;
+			{
+				_fakeObjectGenerator.Companies.Remove(original);
+				_fakeObjectGenerator.Companies.Add(ResolveInsertCompany(company, false));
+			}
 
-			company.Id = _fakeObjectGenerator.GetNewGuid();
-			_fakeObjectGenerator.Companies.Add(company);
+			_fakeObjectGenerator.Companies.Add(ResolveInsertCompany(company));
 
 			return company.Id;
 		}
+
+		#region HelpersToSimulateEF
+
+		public Company ResolveInsertCompany(Company company, bool overrideId = true)
+		{
+			company.MainAddress = null;
+			company.OtherAddresses = null;
+
+			company.Id =  overrideId ? _fakeObjectGenerator.GetNewGuid() : company.Id;
+
+			return company;
+		}
+
+		public Company ResolveCompany(Company company)
+		{
+			if (company is null)
+				return null;
+
+			company.MainAddress = _fakeObjectGenerator.CompanyAddresses.FirstOrDefault(address => address.Id == company.MainAddressId);
+			company.OtherAddresses = _fakeObjectGenerator.CompanyAddresses.Where(address => address.CompanyId == company.Id && !address.IsMainAddress).ToArray();
+
+			return company;
+		}
+
+		#endregion
 	}
 }

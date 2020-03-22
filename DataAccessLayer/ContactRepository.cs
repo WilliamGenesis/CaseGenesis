@@ -70,6 +70,9 @@ namespace DataAccessLayer
 
 		public Contact ResolveContact(Contact contact)
 		{
+			if (contact is null)
+				return null;
+
 			contact.Address = _fakeObjectGenerator.ContactAddresses.FirstOrDefault(address => address.ContactId == contact.Id);
 			contact.Companies = _fakeObjectGenerator.Companies.Where(company => company.ContactId == contact.Id)
 				.Select(company => ResolveCompany(company)).ToArray();
