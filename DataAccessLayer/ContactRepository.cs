@@ -34,7 +34,9 @@ namespace DataAccessLayer
 
 		public Contact[] GetAllContacts()
 		{
-			return _fakeObjectGenerator.Contacts.ToArray();
+			var contacts = _fakeObjectGenerator.Contacts.ToArray();
+
+			return contacts.Select(contact => ResolveContact(contact)).ToArray();
 		}
 
 		public Contact GetContact(Guid contactId)
@@ -52,6 +54,23 @@ namespace DataAccessLayer
 			original = contact;
 
 			return contact.Id;
+		}
+
+		public Contact ResolveContact(Contact contact)
+		{
+			contact.Address = _fakeObjectGenerator.ContactAddresses.FirstOrDefault(address => address.ContactId == contact.Id);
+			contact.Companies = _fakeObjectGenerator.Companies.Where(company => company.ContactId == contact.Id)
+				.Select(company => ResolveCompany(company)).ToArray();
+
+			return contact;
+		}
+
+		public Company ResolveCompany(Company company)
+		{
+			company.MainAddress = _fakeObjectGenerator.CompanyAddresses.FirstOrDefault(address => address.Id == company.MainAddressId);
+			company.OtherAddresses = _fakeObjectGenerator.CompanyAddresses.Where(address => address.CompanyId == company.Id && !address.IsMainAddress).ToArray();
+
+			return company;
 		}
 	}
 }

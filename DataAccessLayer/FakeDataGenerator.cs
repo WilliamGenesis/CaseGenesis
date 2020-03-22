@@ -13,6 +13,8 @@ namespace DataAccessLayer
 		public FakeDataGenerator()
 		{
 			Randomizer.Seed = new Random(444719);
+
+			CreateDataset();
 		}
 
 		public List<Contact> Contacts { get; set; }
@@ -32,12 +34,12 @@ namespace DataAccessLayer
 				var guid = _faker.Random.Guid();
 				var isFreelance = _faker.Random.Bool();
 
-				new Contact
+				Contacts.Add(new Contact
 				{
 					Id = guid,
 					IsFreelance = isFreelance,
 					TvaNumber = isFreelance ? $"BE{_faker.Random.Long(1000000000, 9999999999).ToString()}" : string.Empty
-				};
+				});
 
 				CreateContactAddress(guid);
 				CreateCompanies(_faker.Random.Int(1, 3), guid);

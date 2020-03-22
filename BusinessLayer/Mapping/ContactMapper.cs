@@ -23,6 +23,7 @@ namespace BusinessLayer.Mapping
 			{
 				Id = entity.Id,
 				Address = entity.Address.ToAddressModel(),
+				Companies = entity.Companies.ToCompanyModels(),
 				IsFreelance = entity.IsFreelance,
 				TvaNumber = entity.TvaNumber
 			};
