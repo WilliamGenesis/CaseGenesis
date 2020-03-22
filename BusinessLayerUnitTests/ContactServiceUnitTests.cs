@@ -81,7 +81,7 @@ namespace BusinessLayerUnitTests
 
 			var contactRepositoryMock = new Mock<IContactRepository>();
 			contactRepositoryMock.Setup(repository => repository.CreateContact(It.IsAny<Contact>()))
-				.Returns(Guid.NewGuid());
+				.Returns(contact.Id);
 
 			var contactService = new ContactService(contactRepositoryMock.Object, companyServiceMock.Object, addressRepositoryMock.Object);
 

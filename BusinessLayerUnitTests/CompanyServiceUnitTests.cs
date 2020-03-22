@@ -42,7 +42,7 @@ namespace BusinessLayerUnitTests
 
 			var companyRepositoryMock = new Mock<ICompanyRepository>();
 			companyRepositoryMock.Setup(repository => repository.CreateCompany(It.IsAny<Company>()))
-				.Returns(Guid.NewGuid());
+				.Returns(company.Id);
 
 			var addressRepositoryMock = new Mock<IAddressRepository>();
 			addressRepositoryMock.Setup(repository => repository.UpsertCompanyAddress(It.IsAny<CompanyAddress>()))
