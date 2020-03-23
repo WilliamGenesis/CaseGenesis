@@ -54,7 +54,7 @@ namespace BusinessLayer
 			var contact = contactModel.ToContact();
 			contactModel.Id = _contactRepository.UpdateContact(contact);
 
-			_addressRepository.UpsertContactAddress(contactModel.Address.ToContactAddress(contactModel));
+			_addressRepository.UpdateContactAddress(contactModel.Address.ToContactAddress(contactModel));
 
 			foreach (var company in contactModel.Companies)
 			{

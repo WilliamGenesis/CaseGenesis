@@ -41,6 +41,19 @@ namespace DataAccessLayer
 			return _fakeObjectGenerator.ContactAddresses.FirstOrDefault(address => address.Id == addressId);
 		}
 
+		public Guid UpdateContactAddress(ContactAddress address)
+		{
+			var original = _fakeObjectGenerator.ContactAddresses.FirstOrDefault(add => add.Id == address.Id);
+
+			if (original == null)
+				throw new Exception("The address you are trying to update does not exist");
+
+			_fakeObjectGenerator.ContactAddresses.Remove(original);
+			_fakeObjectGenerator.ContactAddresses.Add(address);
+
+			return address.Id;
+		}
+
 		public Guid UpsertCompanyAddress(CompanyAddress address)
 		{
 			var original = _fakeObjectGenerator.CompanyAddresses.FirstOrDefault(add => add.Id == address.Id);
@@ -49,6 +62,8 @@ namespace DataAccessLayer
 			{
 				_fakeObjectGenerator.CompanyAddresses.Remove(original);
 				_fakeObjectGenerator.CompanyAddresses.Add(address);
+
+				return address.Id;
 			}
 
 			address.Id = _fakeObjectGenerator.GetNewGuid();
@@ -65,6 +80,8 @@ namespace DataAccessLayer
 			{
 				_fakeObjectGenerator.ContactAddresses.Remove(original);
 				_fakeObjectGenerator.ContactAddresses.Add(address);
+
+				return address.Id;
 			}
 
 			address.Id = _fakeObjectGenerator.GetNewGuid();

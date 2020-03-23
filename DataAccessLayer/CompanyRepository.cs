@@ -57,6 +57,8 @@ namespace DataAccessLayer
 			{
 				_fakeObjectGenerator.Companies.Remove(original);
 				_fakeObjectGenerator.Companies.Add(ResolveInsertCompany(company, false));
+
+				return company.Id;
 			}
 
 			_fakeObjectGenerator.Companies.Add(ResolveInsertCompany(company));
